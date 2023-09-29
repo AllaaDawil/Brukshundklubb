@@ -1,0 +1,117 @@
+*{
+    font-family: cursive;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+header {
+    background-color: darkblue;
+    width: 100%;
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    font-weight: 600;
+    font-size: 2em;
+}
+
+
+body{
+    background: url(./image/hundbild.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    
+}
+
+.login-box{
+background: rgba(0 ,0, 0, 0.7);
+width: 500px;
+margin: 2% auto;
+padding: 50px 0;
+color: white;
+justify-content: center;
+align-items: center;
+
+}
+
+h1{
+    justify-content: center;
+    align-items: center;
+    padding: 0% 30%;
+}
+
+.input-box{
+    
+    margin: 0px auto;
+    width: 45%;
+    padding-top: 10px;
+    padding-bottom: 3px;
+    background: transparent;
+}
+
+.button{
+    
+    background-color: aqua;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+    padding: 6px 12px;
+    margin: 20px  60px;
+    border-radius: 10px;
+    transition: 0.7s ease;
+    
+
+
+}
+
+.button:hover{
+    background-color: rgb(61, 210, 210);
+    transform: scale(1.2);
+
+
+
+}
+
+#message{
+    font-weight: 600;
+    font-size: 2em;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 60px;
+   
+}
+
+section{
+    margin: 0%;
+    padding: 0px ; 
+   display: flex;
+   justify-content: center;
+    
+}
+
+
+
+.policy{
+    background-color: darkblue;
+    width: 40%;
+    color: antiquewhite;
+    padding: 10px;
+    border-radius: 10px;
+    
+    
+    
+    
+}
+
+h2{
+    justify-content: center;
+    align-items: center;
+    margin: 0% auto;
+    padding: 0% 30%
+}
+
+
