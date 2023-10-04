@@ -1,39 +1,69 @@
+// konstanta variabler lagrar förväntad namn och lösenord
+const name = "Bella";
+const password = "qwe123";
 
+// Hämta elemnts med deras ID
+const nameInput = document.getElementById("name1");
+const passwordInput = document.getElementById("password1");
+const loginBtn = document.getElementById("btn");
+const logoutBtn = document.getElementById("out-btn");
+const messageDiv = document.getElementById("message");
+
+// kontrollera ifall användaren redan inloggad
+const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+if (isLoggedIn === true) {
+    showLoggedInState();
+} else {
+    showLoggedOutState();
+}
+
+// Lägg till en eventlistener på inloggning knappen
+loginBtn.addEventListener("click", function() {
+    const enteredName = nameInput.value;
+    const enteredPassword = passwordInput.value;
+
+    if (enteredName === name && enteredPassword === password) {
+        localStorage.setItem("isLoggedIn", "true");
+        showLoggedInState();
+    } else {
+        showMessage("Fel användernamn/lösenord");
+    }
+});
+
+// Lägg till en eventlistener på utloggning knappen
+logoutBtn.addEventListener("click", function() {
+    localStorage.removeItem("isLoggedIn");
+    showLoggedOutState();
+});
+// Visa inloggning knapp och välkomnings text vid rätt inloggnings uppgifter
+function showLoggedInState() {
+    nameInput.style.display = "none";
+    passwordInput.style.display = "none";
+    loginBtn.style.display = "none";
+    logoutBtn.style.display = "block";
+    showMessage("Välkomen, du är inloggad");
+}
+// Visa utloggnings knapp och fel meddelande vid fel inloggnings uppgifter
+function showLoggedOutState() {
+    nameInput.style.display = "block";
+    passwordInput.style.display = "block";
+    loginBtn.style.display = "block";
+    logoutBtn.style.display = "none";
+    showMessage(""); // Funktion som rensar eventuella felmeddelanden som kan ha visats på sidan.
+    nameInput.value = ""; //Rensa värdena i användernamn och lösenord fälten
+    passwordInput.value = "";
+}
+
+function showMessage(message) {
+    messageDiv.textContent = message;
+}
+showMessage() // funktionen kallas utan argument,  Rensar felmeddeland som kan ha visats
   
 
-function storedinfo(){ //funktion som lagrar "namn" och "lösenord"
-    localStorage.setItem("name", "Bella");    
-    localStorage.setItem("password", "qwe123");
-}
-storedinfo();    // hämta indataelement och logga in knappen med deras ID:n
-const nameInput = document.getElementById("name1");
-const passInput = document.getElementById("password1");
-const loginbutton = document.getElementById("btn");
 
-document.getElementById("out-btn").style.visibility = "hidden"; //göm elementet logga ut knapp
 
-const name = "Bella"  //konstanta variabler lagrar förväntad namn och lösenord
-const password = "qwe123"
 
-//Lägg till en eventlistener på inloggning knappen
-loginbutton.addEventListener("click", function(){
-
-    //Hämtar sparade "namnet" och "lösenordet" från lokala lagring
-    const storedName = localStorage.getItem("name"); 
-    const storedPassword = localStorage.getItem("password");
-   
-    //komtrollerar om de angivna värdena matchar de lagrad värdena
-    if(nameInput.value === storedName && passInput.value === storedPassword){
-
-        //Visa ett välkomnings meddelande om inloggnings data är rätt och gör logga ut knapp synlig
-        document.getElementById("message").textContent = "Välkomen du är inloggad.";
-        document.getElementById("out-btn").style.visibility = "visible";
-
-    } else { //Visa fel information meddelande om inloggningen misslyckas
-       document.getElementById("message").textContent = "Du gav fel information.";
-      
-    }
-} );
 
 
 
