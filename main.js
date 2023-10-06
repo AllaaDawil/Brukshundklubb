@@ -12,7 +12,7 @@ const messageDiv = document.getElementById("message");
 // kontrollera ifall användaren redan inloggad
 const isLoggedIn = localStorage.getItem("isLoggedIn");
 
-if (isLoggedIn === true) {
+if (isLoggedIn === "true") {
     showLoggedInState();
 } else {
     showLoggedOutState();
